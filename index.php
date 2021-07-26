@@ -142,11 +142,99 @@ print_r($sumuMasyvas);
 
 echo "<hr>";
 /*
-Sukurkite masyvą iš 10 elementų. 
+3. Sukurkite masyvą iš 10 elementų. 
 Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų. 
 Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
 */
 echo "<h3>Trečia užduotis</h3>";
+
+$arr3 = [];
+$string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+for ($i=0; $i < 10; $i++) { 
+    $tempArr = [];
+    $randomNumber = rand(2, 20);
+    for ($a=0; $a < $randomNumber; $a++) { 
+        $shuffled = str_shuffle($string);  
+        $randomLetter = substr($shuffled,-1);
+        $tempArr[] = $randomLetter;
+    }
+    $arr3[] = $tempArr;
+};
+
+$counter = count($arr3);
+
+for ($i=0; $i < $counter; $i++) { 
+    sort($arr3[$i]);
+}
+
+print_r($arr3);
+echo "<hr>";
+
+/*
+4. Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. 
+Masyvai kurie turi bent vieną “K” raidę, visada būtų didžiojo masyvo visai pradžioje.
+*/
+echo "<h3>Ketvirta užduotis</h3>";
+
+// $testArray = [];
+
+// for ($i=0; $i < $counter; $i++) { 
+//     $tempCounter = count($arr3[$i]);
+//     $tempSecondLevelArray = $arr3[$i];
+//     for ($a=0; $a < $tempCounter; $a++) { 
+//         if (strtolower($arr3[$i][$a]) == "k") {
+//             $testArray[] = $i;
+//         };
+//     };
+// };
+
+// print_r($testArray);
+
+// $counterTestArray = count($testArray);
+
+// for ($i=0; $i < $counter; $i++) { 
+//     for ($a=0; $a < $counterTestArray; $a++) { 
+//         if ($i == $a) {
+//             $temporary = $arr3[$i];
+        
+//         }
+//     }
+// }
+
+echo "<hr>";
+
+/*
+5. Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas [user_id => xxx, place_in_row => xxx] 
+user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100. 
+*/
+echo "<h3>Penkta užduotis</h3>";
+
+$penktasArray = [];
+
+for ($i=0; $i < 30; $i++) { 
+    $penktasArray[] = array('user_id' => rand(0, 1000000), 'place_in_row' => rand(0, 100));
+};
+
+print_r($penktasArray);
+
+echo "<hr>";
+
+/*
+6. Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.
+*/
+
+echo "<h3>Šešta užduotis</h3>";
+
+$counterPenktoArray = count($penktasArray);
+
+for ($i=0; $i < $counterPenktoArray; $i++) { 
+    foreach($penktasArray[$i] as $user_id){
+        asort($penktasArray[$i]);
+    };
+};
+
+print_r($penktasArray);
 
 
 ?>  
