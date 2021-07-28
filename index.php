@@ -424,6 +424,20 @@ echo '<pre>';
 print_r($c);
 echo '</pre>';
 
+$suma1 = 0;
+$suma2 = 0;
+
+for ($i=0; $i < count($c); $i++) { 
+    if ($c[$i] == $a) {
+        $suma1++;
+    }
+    if ($c[$i] == $b) {
+        $suma2++;
+    }
+};
+
+echo '<h3>Skaičius '.$a.' yra pakartotas '.$suma1.' kartų, o skaičius '.$b.' - '.$suma2.' kartų.</h3>';
+
 echo "<hr>";
 
 ?>  
