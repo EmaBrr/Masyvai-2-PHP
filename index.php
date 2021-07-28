@@ -334,6 +334,7 @@ echo "<hr>";
 9. Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės
  arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
 */
+echo "<h3>Devinta užduotis</h3>";
 
 $counterAstunto = count($astuntasArray);
 $sumuMasyvas = [];
@@ -354,17 +355,41 @@ sort($sumuMasyvas);
 
 print_r($sumuMasyvas);
 
-echo "<h3>Devinta užduotis</h3>";
 echo "<hr>";
 
 /*
 10. Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. 
 Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. 
 Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX. 
-Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color.
+Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color.  //NESUPRATAU ŠITOS DALIES
 */
 
 echo "<h3>Dešimta užduotis</h3>";
+
+$desimtasMasyvas = [];
+$randomSymbols = "#%+*@裡";
+
+
+//ne mano kurta funkcija:
+function random_color_part() {
+    return str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
+}
+
+function random_color() {
+    return random_color_part() . random_color_part() . random_color_part();
+}
+
+// echo random_color();
+
+for ($i=0; $i < 10; $i++) { 
+    $shuffled = str_shuffle($randomSymbols);
+    for ($a=0; $a < 10; $a++) { 
+        $randomNumber = rand(0,6);
+        $desimtasMasyvas[$i][] = array('value' => substr($shuffled, 0, $randomNumber), 'color' => "#".random_color());
+    }
+};
+
+print_r($desimtasMasyvas);
 echo "<hr>";
 
 /*
