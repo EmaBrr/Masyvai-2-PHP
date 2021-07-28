@@ -335,6 +335,25 @@ echo "<hr>";
  arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
 */
 
+$counterAstunto = count($astuntasArray);
+$sumuMasyvas = [];
+
+for ($i=0; $i < $counterAstunto; $i++) {
+    $sum = 0; 
+    if (is_array($astuntasArray[$i])) {
+        for ($a=0; $a < count($astuntasArray[$i]); $a++) { 
+            $sum += $astuntasArray[$i][$a];
+        }
+        $sumuMasyvas[] = $sum;
+    } else {
+        $sumuMasyvas[] = $astuntasArray[$i];
+    }
+};
+
+sort($sumuMasyvas);
+
+print_r($sumuMasyvas);
+
 echo "<h3>Devinta užduotis</h3>";
 echo "<hr>";
 
